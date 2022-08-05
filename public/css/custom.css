@@ -1,0 +1,52 @@
+        .signup {
+            background-color: #3ba4d4 !important;
+        }
+
+        p {
+            color: black;
+            /* font-size: large;*/
+        }
+
+        #voyager-loader img {
+            animation: none;
+        }
+
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:focus,
+        .nav-tabs>li.active>a:hover {
+            color: #f2f6f8 !important;
+            background-color: #3ba4d4 !important;
+            border-color: transparent transparent #3ba4d4!important;
+        }
+
+        .voyager .nav-tabs>li.active>a:hover {
+            background-color: #3ba4d4 !important;
+            cursor: pointer;
+        }
+
+        .app-container .content-container .side-menu .navbar-header .navbar-brand img {
+            max-width: 124%;
+            max-height: 188%;
+            position: relative;
+            align-items: center;
+            display: inline-block;
+        }
+
+        .app-container .content-container .side-menu .navbar-header {
+            background-color: #fafcfb !important;
+        }
+
+        #dataTable .bread-actions .btn,
+        .actions a.btn {
+            font-size: 12px;
+        }
+
+        .bread-actions {
+            gap: 4px;
+            display: flex;
+            /* float: center; */
+        }
+
+        .content-container {
+            background-color: white !important;
+        }

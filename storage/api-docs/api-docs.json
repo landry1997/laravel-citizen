@@ -1,0 +1,2161 @@
+    {
+        "openapi": "3.0.0",
+        "info": {
+            "title": "API Documentation of COMAID",
+            "description": "This is the API Documentation of COMAID",
+            "contact": {
+                "email": "landry@smartcodegroup.com"
+            },
+            "license": {
+                "name": "Apache 2.0",
+                "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            },
+            "version": "1.0.0"
+        },
+        "servers": [{
+            "url": "http://127.0.0.1:8000",
+            "description": "API Server"
+        }],
+        "paths": {
+            "/api/v1/retrogradeCsoUser/{code}": {
+                "post": {
+                    "tags": [
+                        "Promotion"
+                    ],
+                    "summary": "make a csol in cso",
+                    "operationId": "login",
+                    "parameters": [{
+                        "name": "code",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    },
+                    "security": [{ "BearerAuth": [] }]
+                }
+            },
+            "/api/v1/promoteCsoUser/{code}": {
+                "post": {
+                    "tags": [
+                        "Promotion"
+                    ],
+                    "summary": "promote a cso in csol",
+                    "operationId": "login",
+                    "parameters": [{
+                        "name": "code",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/request_desinstallation": {
+                "post": {
+                    "tags": [
+                        "Desistallation"
+                    ],
+                    "summary": "request desinstallation code",
+                    "operationId": "request desinstallation",
+                    "parameters": [{
+                            "name": "user_id",
+                            "in": "query",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "latitude",
+                            "in": "query",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "longitude",
+                            "in": "query",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "lieu",
+                            "in": "query",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/makeAlerteSuivi": {
+                "post": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "produces": [
+
+                    ],
+                    "summary": "make simple alert, quick alert or suivi demand",
+                    "operationId": "make simple alert, quick alert or suivi demand",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "nom_lieu",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "commentaire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type",
+                        "in": "query",
+                        "description": "if type == 0 quickalert, if type == 1 simple alerte, else suivi demand",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type_commentaire",
+                        "in": "query",
+                        "description": "if value == 1 alors on envoie un audio else c'est un simple commentaire",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "audio",
+                        "in": "query",
+                        "description": "audio comment",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    }, {
+                        "name": "media",
+                        "in": "query",
+                        "description": "photo ou video pour uniquement les simples alertes",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    }, {
+                        "name": "type_media",
+                        "in": "query",
+                        "description": "photo ou video pour uniquement les simples alertes. 0 = photo et 1 = video",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {},
+                                "multipart/form-data": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        },
+                        "500": {
+                            "description": "Server error"
+                        }
+                    }
+                }
+            },
+            "/api/v1/alerteByUser/{user_id}/{type}": {
+                "get": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "summary": "see simple alert, quick alert or suivi demand for one user",
+                    "operationId": "see simple alert, quick alert or suivi demand for one user",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type",
+                        "in": "path",
+                        "description": "if type == 0 quickalert, if type == 1 simple alerte, else suivi demand",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/allAlerteByUser/{user_id}": {
+                "get": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "summary": "see simple alert, quick alert or suivi demand for one user",
+                    "operationId": "see simple alert, quick alert or suivi demand for one user",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/allAlerte": {
+                "get": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "summary": "see simple alert, quick alert or suivi demand for one user",
+                    "operationId": "see simple alert, quick alert or suivi demand for one user",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/detailAlert/{code}/{type}": {
+                "get": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "summary": "all alert",
+                    "operationId": "all alerte",
+                    "parameters": [{
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type",
+                        "in": "query",
+                        "description": "if type == 0 quickalert, if type == 1 simple alerte, else suivi demand",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/sendPushData/{user_id}/{message}/{title}": {
+                "get": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "summary": "push data",
+                    "operationId": "push data",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "message",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "title",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/createUser": {
+                "post": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "create new user",
+                    "operationId": "create new user",
+                    "parameters": [{
+                        "name": "role_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "validator",
+                        "description": "id de l'utilisateur qui initie la création du nouvel utilisateur",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/finishCreateUser": {
+                "post": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "finish creation of new user",
+                    "operationId": "finish creation of new user",
+                    "parameters": [{
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "lastname",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "phone",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "region",
+                        "in": "query",
+                        "description": "region id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "ville",
+                        "in": "query",
+                        "description": "ville id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/fermetureAlertSuivi": {
+                "post": {
+                    "tags": [
+                        "Fermeture"
+                    ],
+                    "summary": "fermeture simple alert, quick alert or suivi demand",
+                    "operationId": "fermeture simple alert, quick alert or suivi demand",
+                    "parameters": [{
+                        "name": "code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type",
+                        "in": "query",
+                        "description": "if type == 0 quickalert, if type == 1 simple alerte, else suivi demand",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type_motif_fermeture",
+                        "in": "query",
+                        "description": "0 pour le texte et 1 pour les audios(type de commentaire qu'un admin envoie quand il veut fermer l'alerte)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "commentaire_admin_audio",
+                        "in": "query",
+                        "description": "fichier audio que l'admin envoie (sous forme de form data) lorsqu'il veut fermer une alerte",
+                        "required": false,
+                        "schema": {
+                            "type": "file"
+                        }
+                    }, {
+                        "name": "commentaire_admin",
+                        "in": "query",
+                        "description": "texte que l'admin envoie quand il veut fermer une alerte",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "fermeur",
+                        "in": "query",
+                        "description": "id de la personne qui va fermer l'alerte",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/suiviPosition": {
+                "post": {
+                    "tags": [
+                        "Alert"
+                    ],
+                    "summary": "save position after follow up request. dans cette route je recois une seule position à la fois",
+                    "operationId": "save position after follow up request",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "nom_lieu",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "demande_suivi_id",
+                        "in": "query",
+                        "description": "code de la demande de suivi",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/users-export-excel": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "excel export user",
+                    "operationId": "pdf export user",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/users-export-pdf": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "pdf export user",
+                    "operationId": "pdf export user",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-follow-up-request-export-excel": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "excel export demande de suivi",
+                    "operationId": "excel export demande de suivi",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-follow-up-request-export-pdf": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "pdf export demande de suivi",
+                    "operationId": "pdf export demande de suivi",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-quick-alert-export-excel": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "excel export quick alert",
+                    "operationId": "excel export quick alert",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-quick-alert-export-pdf": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "pdf export quick alert",
+                    "operationId": "pdf export quick alert",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-simple-alert-export-excel": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "excel export simple alert",
+                    "operationId": "excel export simple alert",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-simple-alert-export-pdf": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "pdf export simple alert",
+                    "operationId": "pdf export simple alert",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-position-of-suivi-demand-export-excel": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "excel export position of suivi demand",
+                    "operationId": "excel export position of suivi demand",
+                    "parameters": [{
+                        "name": "suivi_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/all-position-of-suivi-demand-export-pdf": {
+                "get": {
+                    "tags": [
+                        "Export"
+                    ],
+                    "summary": "pdf export position of suivi demand",
+                    "operationId": "pdf export position of suivi demand",
+                    "parameters": [{
+                        "name": "suivi_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/lastPosition/{user_id}": {
+                "get": {
+                    "tags": [
+                        "Last position"
+                    ],
+                    "summary": "last user position",
+                    "operationId": "last user position",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/allPosition/{suivi_id}": {
+                "get": {
+                    "tags": [
+                        "Last position"
+                    ],
+                    "summary": "user position by normal tracking",
+                    "operationId": "user position by normal tracking",
+                    "parameters": [{
+                        "name": "suivi_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/last-positions-of-user-excel": {
+                "post": {
+                    "tags": [
+                        "Last position"
+                    ],
+                    "summary": "last user position excel export",
+                    "operationId": "last user position excel export",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/last-positions-of-user-pdf": {
+                "post": {
+                    "tags": [
+                        "Last position"
+                    ],
+                    "summary": "last user position excel pdf",
+                    "operationId": "last user position excel pdf",
+                    "parameters": [{
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/creation_historique": {
+                "get": {
+                    "tags": [
+                        "historique"
+                    ],
+                    "summary": "historique de creation des utilisateur",
+                    "operationId": "historique de creation des utilisateur",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/validation_historique": {
+                "get": {
+                    "tags": [
+                        "historique"
+                    ],
+                    "summary": "historique de validation des utilisateur",
+                    "operationId": "historique de validations des utilisateur",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/desinstallation_historique": {
+                "get": {
+                    "tags": [
+                        "historique"
+                    ],
+                    "summary": "historique de demande de désinstallation",
+                    "operationId": "historique de demande de désinstallation",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/liste-des-villes": {
+                "get": {
+                    "tags": [
+                        "Ville Regions"
+                    ],
+                    "summary": "liste des villes",
+                    "operationId": "liste des villes",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/liste-des-regions": {
+                "get": {
+                    "tags": [
+                        "Ville Regions"
+                    ],
+                    "summary": "liste des regions",
+                    "operationId": "liste des regions",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/register": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "Register",
+                    "operationId": "Register",
+                    "parameters": [{
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "lastname",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "fcm_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "Aumoins 8 chiffres",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "role_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "region",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "ville",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Au moins 8 charactères, une majuscule, 1 charactère spécial et un chiffre",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/manageActivation/{code}": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "Active or deactive user",
+                    "operationId": "activation management",
+                    "parameters": [{
+                        "name": "code",
+                        "description": "user code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "type",
+                        "description": "0 == active user, 1 == deactive user",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "validator",
+                        "description": "code de celui qui active l'utilisateur.",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/login": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "login",
+                    "operationId": "login",
+                    "parameters": [{
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/resetVerificationEmail/{mail}": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "verify email",
+                    "operationId": "verify email",
+                    "parameters": [{
+                        "name": "mail",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/resetPassword": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "verify email",
+                    "operationId": "verify email",
+                    "parameters": [{
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/refreshToken": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "refresh access token",
+                    "operationId": "refresh access token an expire token date",
+                    "parameters": [{
+                        "name": "token",
+                        "in": "query",
+                        "description": "token de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/updateDeviceToken": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "refresh device token",
+                    "operationId": "refresh device token an expire token date",
+                    "parameters": [{
+                        "name": "token",
+                        "in": "query",
+                        "description": "device token de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },{
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "id de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/userDetail/{token}": {
+                "get": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "token de l'utilisateur",
+                    "operationId": "token de l'utilisateur",
+                    "parameters": [{
+                        "name": "token",
+                        "in": "query",
+                        "description": "token de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/logout": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "Logout",
+                    "operationId": "Logout",
+                    "parameters": [{
+                        "name": "id",
+                        "in": "query",
+                        "description": "id de l'utilisateur connecté",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/updateUser": {
+                "post": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "Update user",
+                    "operationId": "Update user",
+                    "parameters": [{
+                        "name": "avatar",
+                        "in": "query",
+                        "description": "photo de profil",
+                        "required": false,
+                        "schema": {
+                            "type": "file"
+                        }
+                    }, {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "email",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "lastname",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "Aumoins 8 chiffres",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "region",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }, {
+                        "name": "ville",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }, {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Au moins 8 charactères, une majuscule, 1 charactère spécial et un chiffre",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }, {
+                        "name": "old_password",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },
+            "/api/v1/allUsers": {
+                "get": {
+                    "tags": [
+                        "AUTH"
+                    ],
+                    "summary": "active and deactive users",
+                    "operationId": "active and deactive users",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            },"/api/v1/frequence": {
+                "get": {
+                    "tags": [
+                        "Frequence"
+                    ],
+                    "summary": "frequence of normal tracking",
+                    "operationId": "frequence of normal tracking",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "Success",
+                            "content": {
+                                "application/json": {}
+                            }
+                        },
+                        "401": {
+                            "description": "Unauthenticated"
+                        },
+                        "400": {
+                            "description": "Bad Request"
+                        },
+                        "404": {
+                            "description": "not found"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        },
+                        "422": {
+                            "description": "Unprocessable Entity"
+                        }
+                    }
+                }
+            }
+        },
+        "components": {
+            "securitySchemes": {
+                "api_key": {
+                    "type": "apiKey",
+                    "name": "Authorization",
+                    "in": "header"
+                },
+                "passport": {
+                    "type": "oauth2",
+                    "description": "Laravel passport oauth2 security.",
+                    "in": "header",
+                    "scheme": "http",
+                    "flows": {
+                        "password": {
+                            "authorizationUrl": "https://comaid.smartcodegroup.com/oauth/authorize",
+                            "tokenUrl": "https://comaid.smartcodegroup.com/oauth/token",
+                            "refreshUrl": "https://comaid.smartcodegroup.com/token/refresh",
+                            "scopes": []
+                        }
+                    }
+                }
+            }
+        },
+        "definitions": {
+            "LoginModel": {
+                "type": "object",
+                "properties": {
+                    "username": { "type": "string" },
+                    "password": { "type": "string" }
+                }
+            }
+        },
+        "security": [{
+            "Bearer": []
+        }, {
+            "BasicAuth": []
+        }]
+    }

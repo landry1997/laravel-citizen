@@ -1,0 +1,4 @@
+[09-Jul-2022 16:41:57 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/smartcodegroup/comaid/vendor/symfony/routing/Matcher/Dumper/CompiledUrlMatcherDumper.php on line 438
+[09-Jul-2022 16:41:57 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/smartcodegroup/comaid/vendor/symfony/error-handler/Error/FatalError.php on line 1
+[09-Jul-2022 17:03:34 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/smartcodegroup/comaid/vendor/symfony/routing/Matcher/Dumper/CompiledUrlMatcherDumper.php on line 432
+[09-Jul-2022 17:03:34 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/smartcodegroup/comaid/vendor/symfony/error-handler/Error/FatalError.php on line 1
